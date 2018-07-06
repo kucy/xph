@@ -1,36 +1,142 @@
-<!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
-    <link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/animate.css/3.5.2/animate.min.css">
-    <title>小破孩</title>
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-      }
-      html, body {
-        height: 100%;
-      }
-
-      #app {
-        height: 100%;
-        max-width: 640px;
-        min-width: 320px;
-        margin: 0 auto;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-    </style>
-  </head>
-  <body>
-    <div id="app">
-      天王盖地虎
-    </div>
-    <!-- built files will be auto injected -->
-    
-    </script>
-  </body>
+    <head>
+        <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+        <title>小杨梅</title>
+        <meta charset="utf-8">
+        <script src='https://cdn.bootcss.com/echarts/3.7.0/echarts.simple.js'></script>
+        <script src='./echarts-wordcloud.min.js'></script>
+    </head>
+    <body>
+        <style>
+            html, body, #main {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+            }
+        </style>
+        <div id='main'></div>
+        <script>
+            var chart = echarts.init(document.getElementById('main'));
+            var option = {
+                tooltip: {},
+                series: [ {
+                    type: 'wordCloud',
+                    gridSize: 2,
+                    sizeRange: [12, 50],
+                    rotationRange: [-90, 90],
+                    shape: 'pentagon',
+                    width: 600,
+                    height: 400,
+                    drawOutOfBound: true,
+                    textStyle: {
+                        normal: {
+                            color: function () {
+                                return 'rgb(' + [
+                                    Math.round(Math.random() * 160),
+                                    Math.round(Math.random() * 160),
+                                    Math.round(Math.random() * 160)
+                                ].join(',') + ')';
+                            }
+                        },
+                        emphasis: {
+                            shadowBlur: 10,
+                            shadowColor: '#333'
+                        }
+                    },
+                    data: [
+                        {
+                            name: '女孩',
+                            value: 10000,
+                            textStyle: {
+                                normal: {
+                                    color: 'black'
+                                },
+                                emphasis: {
+                                    color: 'red'
+                                }
+                            }
+                        },
+                        {
+                            name: '本来就傻',
+                            value: 6181
+                        },
+                        {
+                            name: '就是了',
+                            value: 4386
+                        },
+                        {
+                            name: '估计真傻',
+                            value: 4055
+                        },
+                        {
+                            name: '以后不想和我说我别找我',
+                            value: 2467
+                        },
+                        {
+                            name: '我就刚接了一电话',
+                            value: 2244
+                        },
+                        {
+                            name: '你洗洗睡吧',
+                            value: 1898
+                        },
+                        {
+                            name: '如果你一直打算这样每次我想说点什么你总说你困还是怎么',
+                            value: 1484
+                        },
+                        {
+                            name: '花一点时间沟通都没有',
+                            value: 1112
+                        },
+                        {
+                            name: '那我真的很累',
+                            value: 965
+                        },
+                        {
+                            name: '我会乱想的',
+                            value: 847
+                        },
+                        {
+                            name: '如果真的这样我坚持不下去的',
+                            value: 582
+                        },
+                        {
+                            name: '没空',
+                            value: 555
+                        },
+                        {
+                            name: '随便就随便',
+                            value: 550
+                        },
+                        {
+                            name: '你手机牛逼点',
+                            value: 462
+                        },
+                        {
+                            name: '嗯',
+                            value: 366
+                        },
+                        {
+                            name: '我想干嘛',
+                            value: 360
+                        },
+                        {
+                            name: '这次觉定权给你，你想怎么样就怎么样',
+                            value: 282
+                        },
+                        {
+                            name: '嗯',
+                            value: 273
+                        },
+                        {
+                            name: '嗯',
+                            value: 265
+                        }
+                    ]
+                } ]
+            };
+            chart.setOption(option);
+            window.onresize = chart.resize;
+        </script>
+    </body>
 </html>
